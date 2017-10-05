@@ -7,7 +7,8 @@ from random import randint
 class SignUp(object):
     global check
     check = False
-
+    
+    #check the name that's been entered is at least not numbers
     def __init__(self, name):
         good_input = check
         while not good_input:
@@ -20,7 +21,7 @@ class SignUp(object):
                 good_input = False
 
 
-
+    #pick room to enter either gold or silver
     def enter(self):
         good_input = check
         while not good_input:
@@ -36,6 +37,7 @@ class SignUp(object):
                 print "There are only two rooms to choose from "
                 good_input = False
 
+    #picks if the the person want to battle as a fighter or wizard
     def style(self):
         good_input = check
         while not good_input:
@@ -49,7 +51,7 @@ class SignUp(object):
                 print "You can only choose 'fighter' or 'wizard'"
                 good_input = False
 
-
+# Not used
 class Jason(object):
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__,
