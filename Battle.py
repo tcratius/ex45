@@ -4,13 +4,9 @@ import Human
 import os
 from random import randint
 
-
-
-
-
 class Battle2(object):
 
-
+    #does a visual of the players and monsters name, hit points, and how much they attack each other for 
     def battle_stats(self, monster_attack, player_attack):
         os.system("cls")
         print "Animal %s HP %d Attacks you %d point"  % (
@@ -20,6 +16,7 @@ class Battle2(object):
                 self.player.name, self.player.present_human_hit_points,
                 self.monster.name, self.player_attack)
 
+    # Outputs the end of game result
     def EndGame(self, out_come):
         self.out_come = out_come
         if self.out_come == 'monster':
@@ -30,12 +27,15 @@ class Battle2(object):
             print "*" * 10
             print "Game Over"
             print "Looks like I'll be using the coffin for %s after all" % player.name
-
+    
+    # calls the methods decrease hit points from both human and monster according to monster and player attack strenght
+    # It then assigns it to a variable to use in other function
     def deduct_hp(self, player, monster):
         self.monster_attack = self.player.decrease_health(randint (1, monster.attack_moves))
         self.player_attack = self.monster.decrease_health(randint (1, player.attack_moves_one))
         return self.monster_attack, self.player_attack
-
+    
+    #This determines from the game.pickle file whether the player decided to be a 'fighter' or 'wizard'
     def player_pick(self, name, battle_type):
         self.battle_type = battle_type
         if self.battle_type == 'fighter':
